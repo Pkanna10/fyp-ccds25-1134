@@ -1,0 +1,49 @@
+A-OKVQA val, labelled questions: n = 1145
+split used in Section 4.6: leak = 765 questions, no leak = 380
+
+  raw: correct option verbatim in one of the rationales                765   66.8%
+  raw: correct option verbatim in the joined rationales                765   66.8%
+  raw: content-word stem of the correct option (masker's matcher)      934   81.6%
+  masked: has at least one blank                                      1089   95.1%
+  masked: correct-option word, suffix-strip detector                     6    0.5%
+  masked: correct-option word, exact-word detector                       4    0.3%
+  masked: wrong-option word, suffix-strip detector                       6    0.5%
+  masked: correct option, 5-letter prefix                               45    3.9%
+  masked: correct option or >=3-vote answer, 5-letter prefix            55    4.8%
+  masked: >=3-vote direct answer verbatim                                0    0.0%
+  masked: masker's own matcher (0 by construction)                       0    0.0%
+  caption: correct option verbatim                                     264   23.1%
+  caption: stem of correct option or >=3-vote answer                   503   43.9%
+  masked: blanks per word of the rationale (mean)                             9.8%
+
+all masked rationales where the suffix-strip detector finds a correct-option word:
+  correct: 'eat them'
+    masked: They're ___ them. The people are going to ___ the tacos. It's a ___ store.
+  correct: 'for reception'
+    masked: There are two tall structures extending above another ___. they are used to capture signal for calling people. These are towers that are used for mobile ___. They are often use for tv and cellphone __
+  correct: 'camera lens'
+    masked: The ___ is a ___. It is the ___ on a ___. ___ lenses are round and that is what one looks through to take a picture. we are looking at a picture and seeing the round edges of the ___.
+  correct: 'ski down'
+    masked: The people are wearing skis and will slide down the slope. The people ___. The people will ___ it.
+  correct: 'for food'
+    masked: The cat wants a snack. The cat wants to rummage for ___. The cat is ___ ___.
+  correct: 'being stuck'
+    masked: The ___ could ___. The ___ is barely bigger than his head A cat has its whole ___ down in the drink and looks to be snagged.
+
+first 8 hits of the 5-letter-prefix detector (correct or >=3-vote):
+  correct: 'japan'
+    masked: This is the wii game The girl is using a wii which a product of nintendo which is a japanese company. ___ produces this device.
+  correct: 'shampoo conditioner'
+    masked: They are located within the shower. They are in the shower. They are bottles of stuff to ___ your hair with and condition it.
+  correct: 'two-wheeler'
+    masked: The ___, not any of the ___, is the closest to the security guard. The vehicle with ___ wheels is being used by the security guard. The security guard is resting his feet on a ___ so it is the closest
+  correct: 'show performance'
+    masked: He is doing tricks for a competition They are performing for crowd. The activity is a ___.
+  correct: 'water'
+    masked: The zebras are in a ___. The ___ texture to the ground in the middle and the glossy ___ contained allow us to conclude there is a small waterbed here. They're in ___.
+  correct: 'nutritionist'
+    masked: The other options don't fit with the ___ ingredients or amount of food on display. The plates contain fruits and vegetables that are very ___ and would be eaten by a ___. It is a ___ and well balanced
+  correct: 'classmates'
+    masked: This is a classroom picture so they are all in the same ___. They are all the same age and the way they are sitting suggest this is a ___ picture. These people are wearing ___ uniforms.
+  correct: 'spiderman'
+    masked: The cake is red and it has a spiderweb mask. The cake looks like the character spider ___. The cake is in the pattern of ___'s facial mask worn while fighting crime.

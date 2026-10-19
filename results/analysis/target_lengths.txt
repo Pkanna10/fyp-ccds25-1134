@@ -1,0 +1,4 @@
+# Output of the original measurement, with the sample and tokenizer that
+# experiments/analysis/target_lengths.py uses (2,000 train items, seed 0, letter B);
+# re-running the script needs transformers.
+A->R target tokens (+EOS), Qwen/Qwen2-0.5B-Instruct, n = 2000 train items, seed 0: mean 18.3 median 16; letter share mean 0.063 (AO: 0.5)

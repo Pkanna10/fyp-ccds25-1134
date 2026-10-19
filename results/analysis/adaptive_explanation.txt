@@ -1,0 +1,3 @@
+G05 full : AO 67.4  R→A 61.3  adaptive 65.4  named-share 57.4
+G05 n4000: AO 61.4  R→A 55.0  adaptive 59.1  named-share 49.8
+G7 n4000: AO 81.7  R→A 77.6  adaptive 80.0  named-share 55.8

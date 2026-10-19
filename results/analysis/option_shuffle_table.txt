@@ -1,0 +1,31 @@
+
+AO 4k s0:   shuffled vs original order
+  rot0       61.5 vs  61.7   diff  -0.2 [-1.7, +1.3]
+  mean_rot   61.6 vs  62.6   diff  -0.9 [-1.8, -0.0]
+  perm       64.4 vs  64.9   diff  -0.5 [-1.8, +0.7]
+  circ       45.8 vs  47.5   diff  -1.7 [-3.2, -0.3]
+  flip       38.6 vs  37.4   diff  +1.2 [-0.7, +3.1]
+  swapped    33.7 vs  33.1
+
+AO 4k s1:   shuffled vs original order
+  rot0       61.6 vs  60.9   diff  +0.7 [-0.9, +2.4]
+  mean_rot   61.8 vs  61.5   diff  +0.3 [-0.7, +1.2]
+  perm       64.4 vs  63.6   diff  +0.8 [-0.7, +2.2]
+  circ       47.8 vs  47.1   diff  +0.7 [-0.9, +2.2]
+  flip       34.4 vs  38.1   diff  -3.7 [-5.9, -1.6]
+  swapped    33.5 vs  34.5
+
+A→R λ0.3 4k s0:   shuffled vs original order
+  rot0       60.9 vs  62.0   diff  -1.1 [-2.6, +0.3]
+  mean_rot   61.0 vs  62.0   diff  -1.0 [-2.0, -0.1]
+  perm       62.9 vs  63.7   diff  -0.8 [-2.3, +0.6]
+  circ       45.3 vs  46.7   diff  -1.4 [-3.0, +0.2]
+  flip       38.3 vs  38.3   diff  +0.1 [-2.1, +2.2]
+  swapped    34.8 vs  32.8
+
+AO 4k, mean of seeds 0-1 (item bootstrap on the seed-averaged per-item score):
+  rot0       61.5 vs  61.3   diff  +0.3 [-0.8, +1.4]
+  mean_rot   61.7 vs  62.0   diff  -0.3 [-1.0, +0.3]
+  perm       64.4 vs  64.2   diff  +0.1 [-0.8, +1.1]
+  circ       46.8 vs  47.3   diff  -0.5 [-1.6, +0.5]
+  flip       36.5 vs  37.7   diff  -1.2 [-2.6, +0.2]

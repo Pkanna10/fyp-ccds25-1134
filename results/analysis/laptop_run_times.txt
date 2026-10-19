@@ -1,0 +1,60 @@
+# Laptop job times (Apple M4 Pro, 24 GB) from the start/end lines of the queue logs
+# (runs/mac_AB/queue.log and runs/mac_final/queue.log on the laptop): start (UTC), minutes, exit.
+# Each time includes evaluation; the image-feature cache was filled by the first 729-token run.
+
+## Before the speed-ups: 0.5B, 4k items, the same evaluation (4 orders, real and swapped images)
+# runs/laptop/mac_extra/*_mps (macOS 27.0.1, 2026-10-11/12; dev check 500 questions, no feature
+# cache, standard attention). Start from the queue-log header; training ends when train_log.jsonl
+# is last written, evaluation when predictions.jsonl is (file modification times on the laptop).
+                                              start (UTC)       training  evaluation  total
+B_answer_only_n4000_s0_mps                    2026-10-11 15:54   62.6 min   26.1 min   88.7 min
+B_answer_then_rationale_n4000_s0_mps          2026-10-11 17:23   65.6 min   25.4 min   91.0 min
+B_answer_only_n4000_s1_mps                    2026-10-12 09:38   52.5 min   23.5 min   76.0 min
+B_answer_then_rationale_n4000_s1_mps          2026-10-12 10:54   54.9 min   22.4 min   77.3 min
+B_answer_only_n4000_s2_mps                    2026-10-12 12:11   57.8 min   23.9 min   81.8 min
+B_answer_then_rationale_n4000_s2_mps          2026-10-12 13:33   58.1 min   23.2 min   81.3 min
+mean of the six: 82.7 min (range 76.0-91.0)
+
+After the speed-ups (feature cache filled, block-causal attention, dev check 100 questions):
+AO_shuf_n4000_s1 41.6 min (training 29.0, evaluation 12.5) and ATR_shuf_rw0.3_n4000_s0 45.2 min
+(mac_AB below); the run that filled the cache, AO_shuf_n4000_s0, took 59.2 min.
+
+## mac_AB (Tables 4.11, 4.12, 4.14; direct-answer bridges of Table 4.16)
+AO_shuf_n4000_s0                              2026-10-16 07:48    59.2 min  exit=0   (fills the feature cache)
+AO_shuf_n4000_s1                              2026-10-16 08:48    41.6 min  exit=0
+ATR_shuf_rw0.3_n4000_s0                       2026-10-16 09:29    45.2 min  exit=0
+AO_shuf_tok196_n4000_s0                       2026-10-16 11:55    21.2 min  exit=0   (no speed-ups)
+AO_shuf_tok196_pilot_n4000_s0                 2026-10-16 12:19    19.8 min  exit=0
+AO_shuf_tok81_pilot_n4000_s0                  2026-10-16 12:39    13.1 min  exit=0
+AO_shuf_tok196_pilot_kauto_n4000_s0           2026-10-16 13:56    17.4 min  exit=0
+AO_shuf_tok196_pilot_kauto_n4000_s1           2026-10-16 14:56    15.8 min  exit=0
+AO_shuf_tok81_pilot_kauto_n4000_s1            2026-10-16 15:12    12.4 min  exit=0
+AO_shuf_tok196_pilot_kauto_n4000_s2           2026-10-16 15:24    16.8 min  exit=0
+AO_shuf_tok81_pilot_kauto_n4000_s2            2026-10-16 15:41    12.6 min  exit=0
+B_direct_answer_n4000_s0                      2026-10-17 19:03    29.7 min  exit=0
+B_direct_answer_n4000_s1                      2026-10-17 19:33    30.5 min  exit=0
+B_direct_answer_n4000_s2                      2026-10-17 20:04    30.6 min  exit=0
+
+Training and evaluation phases of the 196-token runs (Table 4.14), from the same file times:
+AO_shuf_tok196_n4000_s0 (no compile, no CPU share)  training 13.5 min  evaluation 7.5 min
+AO_shuf_tok196_pilot_n4000_s0 (CPU share fixed at 5)  training 12.2 min  evaluation 7.4 min
+AO_shuf_tok196_pilot_kauto_n4000_s0 (compile, CPU share auto)  training 9.4 min  evaluation 7.8 min
+Training speed-up from compile and CPU co-training: 13.5 / 9.4 = 1.44x.
+
+Table 4.12: 196 tokens = mean of the three kauto runs (17.4, 15.8, 16.8) = 16.7 min;
+81 tokens = mean of pilot s0, kauto s1, kauto s2 (13.1, 12.4, 12.6) = 12.7 min.
+
+## mac_final (Tables 4.8 A->R rows, 4.9, 4.16 7B; evaluation only)
+atr_full_s0                                   2026-10-18 06:27    14.8 min  ok
+atr_full_s1                                   2026-10-18 06:42    14.6 min  ok
+atr_full_s2                                   2026-10-18 06:56    14.6 min  ok
+steer_full_s0                                 2026-10-18 07:11     5.2 min  ok
+steer_full_s1                                 2026-10-18 07:16     5.3 min  ok
+steer_full_s2                                 2026-10-18 07:22     5.4 min  ok
+atrbal_full_s0                                2026-10-18 07:27    15.7 min  ok
+atrbal_full_s1                                2026-10-18 07:43    15.2 min  ok
+atrbal_full_s2                                2026-10-18 07:58    14.6 min  ok
+7b_mmstar_theta0                              2026-10-18 10:44    52.0 min  ok
+7b_mmstar_aofull_s0                           2026-10-18 11:36   149.8 min  ok
+7b_da_theta0                                  2026-10-18 14:06   103.7 min  ok
+7b_da_aofull_s0                               2026-10-18 15:50   103.3 min  ok

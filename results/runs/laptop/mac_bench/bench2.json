@@ -1,0 +1,114 @@
+{
+  "B2 attention base": {
+    "ms": 6.71,
+    "x24": 161,
+    "fp32_rel_err": "0.0e+00"
+  },
+  "B2 attention f32": {
+    "ms": 6.63,
+    "x24": 159,
+    "fp32_rel_err": "0.0e+00"
+  },
+  "B2 attention grouped": {
+    "ms": 5.49,
+    "x24": 132,
+    "fp32_rel_err": "1.1e-06"
+  },
+  "B2 attention block2": {
+    "ms": 4.67,
+    "x24": 112,
+    "fp32_rel_err": "9.6e-07"
+  },
+  "B2 attention block4": {
+    "ms": 17.03,
+    "x24": 409,
+    "fp32_rel_err": "9.5e-07"
+  },
+  "B2 attention fused": {
+    "ms": 6.27,
+    "x24": 151,
+    "fp32_rel_err": "1.1e-06"
+  },
+  "B1 whole layer": {
+    "ms": 19.16,
+    "x24": 460
+  },
+  "B1 input RMSNorm": {
+    "ms": 0.88,
+    "x24": 21
+  },
+  "B1 attention block (q,k,v,rope,sdpa,o)": {
+    "ms": 8.62,
+    "x24": 207
+  },
+  "B1   q_proj": {
+    "ms": 0.84,
+    "x24": 20
+  },
+  "B1   k_proj": {
+    "ms": 0.31,
+    "x24": 7
+  },
+  "B1   v_proj": {
+    "ms": 0.3,
+    "x24": 7
+  },
+  "B1 MLP (gate, up, silu*mul, down)": {
+    "ms": 8.71,
+    "x24": 209
+  },
+  "B1   gate_proj": {
+    "ms": 2.89,
+    "x24": 69
+  },
+  "B1   down_proj": {
+    "ms": 3.25,
+    "x24": 78
+  },
+  "B1 FLOP-ideal per layer at 5.47 TFLOP/s": {
+    "ms": 10.41,
+    "efficiency": "54% of ideal"
+  },
+  "B1 full decoder 24 layers fwd+bwd": {
+    "ms": 447.37
+  },
+  "B3 MLP separate gate/up": {
+    "ms": 8.74
+  },
+  "B3 MLP fused gate+up GEMM": {
+    "ms": 8.92,
+    "fp32_rel_err": "0.0e+00"
+  },
+  "B4 torch.compile layer fwd+bwd": {
+    "ms": 13.79,
+    "compile_s": 3
+  },
+  "B5 CPU BLAS": {
+    "ms": null,
+    "blas": "- LAPACK is enabled (usually provided by MKL); - Build settings: BLAS_INFO=accelerate, BUILD_TYPE=Release, COMMIT_SHA=5c4886908584029761b579af026dcfb627c84070, ",
+    "threads": 8
+  },
+  "B5 CPU fp32 layer fwd+bwd": {
+    "ms": 42.54,
+    "x24": 1021
+  },
+  "B5 GPU decoder step, CPU idle vs busy": {
+    "ms": null,
+    "solo_ms": 453,
+    "busy_ms": 466,
+    "cpu_layers_done": 62,
+    "cpu_ms_per_layer_busy": 45
+  },
+  "B7 eval 4 orders one by one (per item)": {
+    "ms": 464.36
+  },
+  "B7 eval 4 orders batched (per item)": {
+    "ms": 399.41,
+    "max_abs_logp_diff": "4.3e-05"
+  },
+  "B6 shared-prefix gradient vs separate, fp32": {
+    "ms": null,
+    "rel_l2": "3.2e-06",
+    "cosine": "1.000000"
+  }
+}

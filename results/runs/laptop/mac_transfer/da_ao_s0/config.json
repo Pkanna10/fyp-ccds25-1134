@@ -1,0 +1,68 @@
+{
+  "benchmark": "aokvqa-da",
+  "model": "bridge:configs/ov_qwen2_05b_frozen.json",
+  "out": "runs/mac_transfer/da_ao_s0",
+  "limit": null,
+  "conditions": "real,swapped",
+  "contexts": "none",
+  "rotations": 1,
+  "max_new_tokens": 10,
+  "seed": 0,
+  "max_image_side": null,
+  "repope_dir": null,
+  "pope_categories": "adversarial,popular,random",
+  "aokvqa_dir": "data/raw/aokvqa",
+  "coco_dir": "data/raw/coco",
+  "captions": null,
+  "split": "val",
+  "device": "mps",
+  "dtype": "float32",
+  "processor_kwargs": "{}",
+  "projector": "runs/mac_extra/B_answer_only_n4000_s0_mps/projector.pt",
+  "head_dtype": "fp32",
+  "threads": 4,
+  "model_name": "bridge:Qwen/Qwen2-0.5B-Instruct",
+  "model_input": {
+    "head_dtype_requested": "fp32",
+    "head_dtype": "fp32",
+    "prefix_cache": true,
+    "dtype": "float32"
+  },
+  "manifest": {
+    "git_commit": "9720c6cf6e83e0a61470b12c875be8bb60ce2f17",
+    "git_dirty": true,
+    "python": "3.13.2",
+    "packages": {
+      "torch": "2.14.1",
+      "transformers": "5.19.0",
+      "peft": "0.21.2",
+      "numpy": "2.5.3"
+    },
+    "data_sha256": {
+      "runs/mac_extra/B_answer_only_n4000_s0_mps/projector.pt": "0b714aff590f1fde276aea3af0724664fb33ce25d2f3fbbccba9342f5d7b1112",
+      "data/raw/aokvqa/aokvqa_v1p0_val.json": "fd90b05dec8d78d341b69d9516c54a9b30dd4c12c3545599dab5d6f725aba6b4"
+    },
+    "hf_models": {
+      "llm": {
+        "id": "Qwen/Qwen2-0.5B-Instruct",
+        "revision": null
+      },
+      "projector": {
+        "id": "hf://lmms-lab/llava-onevision-projectors/0.5b/mm_projector.bin",
+        "revision": null,
+        "sha256": "932563745103233e673692c43709e01a82fd2d4ef9ab81732263f01f05e093ba"
+      }
+    },
+    "compute": {
+      "torch_num_threads": 4,
+      "torch_interop_threads": 1,
+      "torch_cpu_capability": "DEFAULT",
+      "omp_num_threads_env": null,
+      "cmr_threads_env": null,
+      "cpu_model": "arm",
+      "cpu_flags": null,
+      "cpu_count": 12
+    },
+    "started_utc": "2026-10-17T18:19:37Z"
+  }
+}

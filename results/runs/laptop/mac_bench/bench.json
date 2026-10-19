@@ -1,0 +1,105 @@
+{
+  "swap_before": "vm.swapusage: total = 4096.00M  used = 2827.81M  free = 1268.19M  (encrypted)",
+  "P6 float32": {
+    "mlp_gemm_tflops": 5.01,
+    "attn_fwd_bwd_ms": 4.96
+  },
+  "P6 bfloat16": {
+    "mlp_gemm_tflops": 5.47,
+    "attn_fwd_bwd_ms": 5.75
+  },
+  "P6 float16": {
+    "mlp_gemm_tflops": 5.45,
+    "attn_fwd_bwd_ms": 6.12
+  },
+  "P0 baseline step (batch 1)": {
+    "ms_per_item": 608.7,
+    "n": 12,
+    "alloc_gb": 2.28,
+    "driver_gb": 5.45,
+    "note": ""
+  },
+  "P1a SigLIP tower alone (batch 1)": {
+    "ms_per_item": 151.1,
+    "n": 12,
+    "alloc_gb": 2.28,
+    "driver_gb": 5.45,
+    "note": ""
+  },
+  "P1 projected step with cached features": {
+    "ms_per_item": 457.6,
+    "note": "= P0 - P1a; tower share 25%"
+  },
+  "P2 micro-batch 2": {
+    "ms_per_item": 598.8,
+    "n": 6,
+    "alloc_gb": 2.28,
+    "driver_gb": 8.46,
+    "note": ""
+  },
+  "P2 micro-batch 4": {
+    "ms_per_item": 588.1,
+    "n": 4,
+    "alloc_gb": 2.28,
+    "driver_gb": 11.4,
+    "note": ""
+  },
+  "P3 gradient check": {
+    "cosine": 0.9994129538536072,
+    "rel_l2_diff": 0.04425923898816109
+  },
+  "P3a 4 orders, separate sequences": {
+    "ms_per_item": 485.4,
+    "n": 3,
+    "alloc_gb": 2.29,
+    "driver_gb": 11.77,
+    "note": ""
+  },
+  "P3b 4 orders, shared prefix (NEW)": {
+    "ms_per_item": 219.9,
+    "n": 3,
+    "alloc_gb": 2.29,
+    "driver_gb": 11.8,
+    "note": ""
+  },
+  "P4 SigLIP batch 1": {
+    "ms_per_item": 150.8,
+    "n": 4,
+    "alloc_gb": 2.29,
+    "driver_gb": 3.38,
+    "note": ""
+  },
+  "P4 SigLIP batch 8": {
+    "ms_per_item": 142.4,
+    "n": 4,
+    "alloc_gb": 2.29,
+    "driver_gb": 3.41,
+    "note": ""
+  },
+  "P5a eval cold pass fp32": {
+    "ms_per_item": 362.2,
+    "n": 8,
+    "alloc_gb": 3.54,
+    "driver_gb": 5.46,
+    "note": ""
+  },
+  "P5b fp32 tower alone": {
+    "ms_per_item": 174.2,
+    "n": 8,
+    "alloc_gb": 3.54,
+    "driver_gb": 5.46,
+    "note": ""
+  },
+  "P5c 4 orders scored one by one": {
+    "ms_per_item": 114.2,
+    "n": 6,
+    "alloc_gb": 3.54,
+    "driver_gb": 5.46,
+    "note": "1 cold + 3 cached passes per item"
+  },
+  "memory_end": {
+    "alloc_gb": 1.78,
+    "driver_gb": 5.46
+  },
+  "swap_after": "vm.swapusage: total = 7168.00M  used = 6208.88M  free = 959.12M  (encrypted)"
+}

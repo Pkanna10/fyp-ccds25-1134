@@ -1,0 +1,25 @@
+# environments and caches
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# data (downloaded by scripts/download_data.sh; not redistributed) and the SigLIP feature cache
+# (cache/features)
+data/raw/
+cache/
+
+# large run outputs come with the release assets (scripts/download_release.sh, which keeps
+# the downloaded archives in .release/)
+.release/
+results/runs/**/predictions.jsonl
+results/runs/**/train_log.jsonl
+results/runs/**/queue.log
+results/runs/**/*.pt
+results/runs/**/dev_cache/
+results/runs/**/scores.jsonl
+# report figures, redrawn by scripts/make_*figure*.py
+results/figures/

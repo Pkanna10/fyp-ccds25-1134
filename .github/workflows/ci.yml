@@ -1,0 +1,32 @@
+name: ci
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Install (CPU torch keeps the job small)
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[dev,models]"
+      - name: Lint
+        run: ruff check src tests experiments/analysis && ruff format --check src tests experiments/analysis
+      - name: Type-check
+        run: mypy
+      # Tests marked `slow` load tiny models and train them; run them with `pytest -m slow`.
+      - name: Test
+        run: pytest -m "not slow"
+      - name: Doctests
+        run: pytest --doctest-modules src/cmr -q
+      # Fails if the tables rebuilt from results/run_metrics.json differ from the committed CSVs.
+      - name: Report tables from the committed results
+        run: python scripts/make_report_tables.py > /dev/null && git diff --exit-code results/tables

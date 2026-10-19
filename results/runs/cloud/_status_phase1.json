@@ -1,0 +1,176 @@
+{
+  "phase": "1",
+  "pins": {
+    "google/siglip-so400m-patch14-384": "9fdffc58afc957d1a03a25b10dba0329ab15c2a3",
+    "Qwen/Qwen2-0.5B-Instruct": "c540970f9e29518b1d8f06ab8b24cba66ad77b6d",
+    "lmms-lab/llava-onevision-projectors": "a325adc5b0eae860a2d156b47b793dc727fd394e",
+    "Qwen/Qwen2-7B-Instruct": "f2826a00ceef68f0f2b946d945ecc0477ce4450c"
+  },
+  "jobs": [
+    {
+      "name": "G05_gate64",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_theta0_answer_only",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_theta0_answer_then_rationale",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_theta0_rationale_then_answer",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_only_n4000_s0",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_then_rationale_n4000_s0",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_rationale_then_answer_n4000_s0",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_only_n4000_s1",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_then_rationale_n4000_s1",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_rationale_then_answer_n4000_s1",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_only_n4000_s2",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_then_rationale_n4000_s2",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_rationale_then_answer_n4000_s2",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_only_n4000_s3",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_then_rationale_n4000_s3",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_rationale_then_answer_n4000_s3",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_only_n4000_s4",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_then_rationale_n4000_s4",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_rationale_then_answer_n4000_s4",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_only_full_s0",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_then_rationale_full_s0",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_rationale_then_answer_full_s0",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_only_full_s1",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_then_rationale_full_s1",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_rationale_then_answer_full_s1",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_only_full_s2",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_then_rationale_full_s2",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_rationale_then_answer_full_s2",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_only_full_s3",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_then_rationale_full_s3",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_rationale_then_answer_full_s3",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_only_full_s4",
+      "status": "already_done"
+    },
+    {
+      "name": "G05_B_answer_then_rationale_full_s4",
+      "status": "ok",
+      "seconds": 853,
+      "gpu": "",
+      "gpu_name": "NVIDIA L4",
+      "max_mem_gb": 0.0
+    },
+    {
+      "name": "G05_B_rationale_then_answer_full_s4",
+      "status": "ok",
+      "seconds": 1604,
+      "gpu": "",
+      "gpu_name": "NVIDIA L4",
+      "max_mem_gb": 0.0
+    },
+    {
+      "name": "G7_A1_instrument",
+      "status": "already_done"
+    },
+    {
+      "name": "G7_theta0_answer_only",
+      "status": "already_done"
+    },
+    {
+      "name": "G7_theta0_answer_then_rationale",
+      "status": "already_done"
+    },
+    {
+      "name": "G7_B_answer_only_n4000_s0",
+      "status": "already_done"
+    },
+    {
+      "name": "G7_B_answer_then_rationale_n4000_s0",
+      "status": "already_done"
+    }
+  ],
+  "updated_utc": "2026-10-15T14:40:00Z"
+}

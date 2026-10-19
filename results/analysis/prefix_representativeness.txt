@@ -1,0 +1,48 @@
+sha256 aokvqa_v1p0_train.json 94820c4452d29102365647598c54608d4f48f56bee01b514c996a09cc0972029
+sha256 aokvqa_v1p0_val.json fd90b05dec8d78d341b69d9516c54a9b30dd4c12c3545599dab5d6f725aba6b4
+
+Representativeness of the 4k training set
+training pool 16,024 questions (official train 17,056 minus the dev split); 4k set = pool[:4000]: 4,000 questions, 3,970 images; rest 12,024; val 1,145
+draws: 1,000 x rng.sample(range(16024), 4000), random.Random(0); each statistic compares a set with the rest of the pool
+
+4k set outside the central 95% of the draws on 9 of 11 statistics; p = 1/1001 = 0.0010 (pooled test); beyond the min-max of all 1,000 draws on 7 of 11
+Per statistic (4k set; the draws' 25th-976th values and min-max):
+  SMD question length                    -0.0962  draws 25th-976th [-0.0343, +0.0357]  min-max [-0.0594, +0.0540]  percentile   0.00  outside (beyond all draws)
+  SMD mean rationale length              +0.2445  draws 25th-976th [-0.0333, +0.0377]  min-max [-0.0500, +0.0497]  percentile 100.00  outside (beyond all draws)
+  SMD correct-option length              +0.0942  draws 25th-976th [-0.0364, +0.0331]  min-max [-0.0550, +0.0513]  percentile 100.00  outside (beyond all draws)
+  SMD mean option length                 +0.0836  draws 25th-976th [-0.0376, +0.0381]  min-max [-0.0590, +0.0585]  percentile 100.00  outside (beyond all draws)
+  SMD yes/no question                    -0.0230  draws 25th-976th [-0.0365, +0.0284]  min-max [-0.0516, +0.0587]  percentile  12.90  inside
+  SMD answer stated in a rationale       -0.0866  draws 25th-976th [-0.0355, +0.0376]  min-max [-0.0583, +0.0558]  percentile   0.00  outside (beyond all draws)
+  SMD difficult_direct_answer            +0.0460  draws 25th-976th [-0.0349, +0.0347]  min-max [-0.0809, +0.0505]  percentile  99.55  outside
+  SMD direct answers = correct option    -0.0737  draws 25th-976th [-0.0367, +0.0390]  min-max [-0.0619, +0.0613]  percentile   0.00  outside (beyond all draws)
+  TV correct-option position             +0.0179  draws 25th-976th [+0.0033, +0.0247]  min-max [+0.0004, +0.0463]  percentile  82.50  inside
+  TV question type                       +0.0678  draws 25th-976th [+0.0062, +0.0252]  min-max [+0.0041, +0.0332]  percentile 100.00  outside (beyond all draws)
+  JS correct options                     +0.4932  draws 25th-976th [+0.4714, +0.4881]  min-max [+0.4677, +0.4940]  percentile  99.90  outside
+Number of statistics outside, over the draws: K=0: 615, K=1: 290, K=2: 68, K=3: 23, K=4: 3, K=5: 1
+
+Means (shares for yes/no, stated answer, flags and categories); 'rest' = the 12,024 pool questions after the 4k set, 'draws' = average of the 1,000 draw means (shares):
+                                           4k set     rest    draws      val
+  question length                          8.6005   8.8871   8.8159   8.6969
+  mean rationale length                   11.8102  10.8611  11.1028  11.0833
+  correct-option length                    1.3170   1.2740   1.2846   1.2227
+  mean option length                       1.2842   1.2551   1.2625   1.2109
+  yes/no question                          0.0005   0.0012   0.0010   0.0017
+  answer stated in a rationale             0.6128   0.6544   0.6442   0.6681
+  difficult_direct_answer                  0.1008   0.0873   0.0904   0.0611
+  direct answers = correct option          0.3567   0.3777   0.3726   0.3991
+  correct-option position = 0              0.2500   0.2384   0.2409   0.2454
+  correct-option position = 1              0.2402   0.2495   0.2474   0.2454
+  correct-option position = 2              0.2582   0.2519   0.2536   0.2576
+  correct-option position = 3              0.2515   0.2601   0.2580   0.2515
+  question type = auxiliary                0.0008   0.0011   0.0010   0.0035
+  question type = how                      0.0485   0.0590   0.0563   0.0515
+  question type = other                    0.1177   0.0962   0.1015   0.1013
+  question type = what                     0.6045   0.6614   0.6474   0.6821
+  question type = when                     0.0055   0.0032   0.0038   0.0035
+  question type = where                    0.0473   0.0384   0.0406   0.0402
+  question type = which                    0.0527   0.0419   0.0446   0.0541
+  question type = who                      0.0265   0.0254   0.0258   0.0105
+  question type = why                      0.0965   0.0733   0.0791   0.0533
+Ten most frequent correct options:
+  4k: 'two' 30, 'water' 26, 'one' 18, 'visibility' 17, 'serve' 14, 'rain' 13, 'home' 12, 'swing' 12, 'carrot' 11, 'three' 11
+  rest: 'two' 155, 'three' 129, 'red' 90, 'blue' 72, 'four' 62, 'white' 61, 'yellow' 57, 'water' 55, 'one' 54, 'orange' 53

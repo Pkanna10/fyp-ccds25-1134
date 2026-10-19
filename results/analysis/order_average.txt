@@ -1,0 +1,12 @@
+cell                                     n  rot0   4-rot-ens   prior-sub(cv)  both(cv)  alpha
+G05_B_answer_only_full                   5   67.4   68.3        67.1           68.1    0.14
+G05_B_answer_only_n4000                  5   61.4   64.3        61.1           63.8    0.27
+G05_B_answer_then_rationale_full         5   61.6   64.1        61.6           63.9    0.23
+G05_B_answer_then_rationale_n4000        5   52.1   58.3        52.7           59.0    0.32
+G05_B_rationale_then_answer_full         5   61.3   61.3        60.8           60.8    0.09
+G05_B_rationale_then_answer_n4000        5   55.0   55.0        54.9           54.9    0.11
+G7_B_answer_only_full                    3   83.1   83.6        83.3           83.7    0.21
+G7_B_answer_only_n4000                   3   81.7   82.2        81.5           82.1    0.08
+G7_B_answer_then_rationale_full          3   81.3   81.9        81.4           81.7    0.14
+G7_B_answer_then_rationale_n4000         3   80.1   80.6        79.8           80.3    0.09
+G7_B_rationale_then_answer_n4000         3   77.6   77.6        77.6           77.6    0.10

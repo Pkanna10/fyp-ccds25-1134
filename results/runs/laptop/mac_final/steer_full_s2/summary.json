@@ -1,0 +1,38 @@
+{
+ "projector": "runs_modal/G05_B_answer_only_full_s2/projector.pt",
+ "explanations": "runs_modal/G05_B_rationale_then_answer_full_s2/eval_val/predictions.jsonl",
+ "groups": {
+  "all": {
+   "n": 1145,
+   "ao_plain_acc": 67.1,
+   "ao_with_expl_acc": 66.5,
+   "ra_acc": 60.6,
+   "ao_with_expl_picks_named": 52.9,
+   "ao_right_plain_wrong_with_expl": 8.6
+  },
+  "names_correct": {
+   "n": 409,
+   "ao_plain_acc": 79.0,
+   "ao_with_expl_acc": 95.8,
+   "ra_acc": 97.1,
+   "ao_with_expl_picks_named": 96.1,
+   "ao_right_plain_wrong_with_expl": 0.2
+  },
+  "names_wrong_only": {
+   "n": 248,
+   "ao_plain_acc": 41.1,
+   "ao_with_expl_acc": 10.1,
+   "ra_acc": 2.0,
+   "ao_with_expl_picks_named": 85.9,
+   "ao_right_plain_wrong_with_expl": 31.5
+  },
+  "names_none": {
+   "n": 488,
+   "ao_plain_acc": 70.3,
+   "ao_with_expl_acc": 70.5,
+   "ra_acc": 59.8,
+   "ao_with_expl_picks_named": 0.0,
+   "ao_right_plain_wrong_with_expl": 3.9
+  }
+ }
+}

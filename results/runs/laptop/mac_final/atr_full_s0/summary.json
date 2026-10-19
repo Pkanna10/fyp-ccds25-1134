@@ -1,0 +1,36 @@
+{
+ "projector": "runs_modal/G05_B_answer_then_rationale_full_s0/projector.pt",
+ "target": "answer_then_rationale",
+ "max_new_tokens": 64,
+ "dtype": "float32",
+ "conditions": {
+  "real": {
+   "n": 1145,
+   "letter_acc": 61.8,
+   "names_correct": 40.3,
+   "names_chosen": 63.4,
+   "names_wrong_only": 26.8,
+   "names_any": 67.1,
+   "acc_if_names_correct": 95.9,
+   "acc_otherwise": 38.9,
+   "the_x_is_y": 88.6,
+   "rougeL_best3": 53.5,
+   "rougeL_loo2": 47.6,
+   "words": 6.1
+  },
+  "swapped": {
+   "n": 1145,
+   "letter_acc": 33.0,
+   "names_correct": 22.3,
+   "names_chosen": 63.1,
+   "names_wrong_only": 44.7,
+   "names_any": 67.0,
+   "acc_if_names_correct": 92.5,
+   "acc_otherwise": 16.0,
+   "the_x_is_y": 88.2,
+   "rougeL_best3": 50.7,
+   "rougeL_loo2": 45.2,
+   "words": 6.1
+  }
+ }
+}

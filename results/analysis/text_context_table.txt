@@ -1,0 +1,25 @@
+Table 4.7: frozen LLM with text context only (no image, no training)
+accuracy % at rotation 0 [Wilson 95% CI]
+
+  context given as text                                   0.5B                    7B
+  none                                       29.2 [26.6, 31.9]     45.0 [42.1, 47.9]
+  COCO caption                               55.9 [53.0, 58.7]     72.8 [70.1, 75.3]
+  human rationale, answer words masked       57.8 [54.9, 60.6]     82.9 [80.6, 85.0]
+  human rationale                            86.6 [84.5, 88.4]     96.3 [95.1, 97.3]
+  questions (n)                                           1145                  1145
+
+Section 4.6: full vs masked rationale, split by the rationale_leak flag
+  0.5B  correct option's text in a rationale     n =  765   full  89.5%   masked  52.8%   drop  36.7 pp
+  0.5B  not in any                               n =  380   full  80.5%   masked  67.9%   drop  12.6 pp
+  0.5B    of which: a stem of it in a rationale  n =  169   full  89.3%   masked  63.3%   drop  26.0 pp
+  0.5B    of which: no stem either               n =  211   full  73.5%   masked  71.6%   drop   1.9 pp
+  7B    correct option's text in a rationale     n =  765   full  97.8%   masked  81.4%   drop  16.3 pp
+  7B    not in any                               n =  380   full  93.4%   masked  85.8%   drop   7.6 pp
+  7B      of which: a stem of it in a rationale  n =  169   full  96.4%   masked  84.6%   drop  11.8 pp
+  7B      of which: no stem either               n =  211   full  91.0%   masked  86.7%   drop   4.3 pp
+
+checks:
+  0.5B (pilot_a1v2_instrument): recomputed accuracies equal summary.json for all four contexts
+  0.5B (pilot_a1v2_instrument): masking version of the rationale_masked records: [2] (library: 2)
+  7B (G7_A1_instrument): recomputed accuracies equal summary.json for all four contexts
+  7B (G7_A1_instrument): masking version of the rationale_masked records: [2] (library: 2)

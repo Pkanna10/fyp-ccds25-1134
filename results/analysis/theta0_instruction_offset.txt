@@ -1,0 +1,22 @@
+Instruction offset of the untrained bridge theta_0 (Qwen2-0.5B)
+Inputs: AO instruction  G05_theta0_answer_only/eval_val/predictions.jsonl
+        A→R instruction G05_theta0_answer_then_rationale/eval_val/predictions.jsonl
+Questions: 1145 val questions (ids match aokvqa_v1p0_val.json).
+Score: correct in the original option order (rotation 0), no context.
+Intervals: paired bootstrap, 10,000 draws, seed 0, 95% percentile.
+
+Correct out of 1145:
+  instruction           real      swapped   real - swapped
+  AO              597  52.1%   348  30.4%        +21.75 pp
+  A→R             515  45.0%   323  28.2%        +16.77 pp
+
+Differences (pp, 95% CI):
+  real offset: A→R instruction - AO instruction, real image
+      -7.16  [-9.43, -4.89]
+  swapped offset: A→R instruction - AO instruction, swapped image
+      -2.18  [-4.19, -0.26]
+  gap difference: real offset - swapped offset
+      -4.98  [-7.86, -2.10]
+
+Exact counts: real -82/1145, swapped -25/1145, gap difference -57/1145.
+Per-question gap difference (-2..+2), questions at each value: -2: 3, -1: 161, +0: 871, +1: 110, +2: 0.

@@ -1,0 +1,12 @@
+{
+  "_comment": "7B system: as the 0.5B system with frozen Qwen2-7B-Instruct and the LLaVA-OneVision 7B projector.",
+  "vision_id": "google/siglip-so400m-patch14-384",
+  "llm_id": "Qwen/Qwen2-7B-Instruct",
+  "projector_kind": "mlp2x_gelu",
+  "projector_path": "hf://lmms-lab/llava-onevision-projectors/7b/mm_projector.bin",
+  "select_layer": -2,
+  "drop_cls": false,
+  "pool": 1,
+  "prompt_style": "chat_template",
+  "pad_to_square": false
+}

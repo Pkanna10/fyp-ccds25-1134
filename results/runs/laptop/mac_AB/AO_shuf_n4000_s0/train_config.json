@@ -1,0 +1,19 @@
+{
+  "target": "answer_only",
+  "epochs": 1.0,
+  "batch_size": 1,
+  "grad_accum": 16,
+  "lr": 0.0001,
+  "warmup_frac": 0.03,
+  "weight_decay": 0.0,
+  "max_grad_norm": 1.0,
+  "margin_lambda": 0.0,
+  "margin_nats": 1.0,
+  "eval_every": 1000000,
+  "seed": 0,
+  "grad_checkpointing": false,
+  "rationale_weight": null,
+  "option_shuffle": true,
+  "dev_teacher_forced": true,
+  "select": "last"
+}

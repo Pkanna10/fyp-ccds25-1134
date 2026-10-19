@@ -1,0 +1,226 @@
+Report numbers: report value -> recomputed value
+
+== overlap ==
+Section 3.2 (point 'the questions themselves do not [state the answer]'): content words = cmr.eval.prompts.content_stems
+  content word of the correct option in the question: 1.5% -> 1.5   ok   (content words = cmr.eval.prompts.content_stems)
+  same for a wrong option, on average: 2.2% -> 2.2   ok   (content words = cmr.eval.prompts.content_stems)
+  most-shared-content-words rule (ties split evenly): 24.7% -> 24.7   ok   (content words = cmr.eval.prompts.content_stems)
+
+== splits ==
+Table 3.2: questions / images per split (dev = dev_split, dev_fraction 0.06, seed 0)
+  train questions: 17,056 -> 17,056   ok
+  train images: 16,540 -> 16,540   ok
+  dev questions: 1,032 -> 1,032   ok
+  dev images: 1,008 -> 1,008   ok
+  training pool questions: 16,024 -> 16,024   ok
+  training pool images: 15,532 -> 15,532   ok
+  4k set questions: 4,000 -> 4,000   ok
+  4k set images: 3,970 -> 3,970   ok
+  val questions: 1,145 -> 1,145   ok
+  val images: 1,122 -> 1,122   ok
+  dev share of train images (%): 6.1% -> 6.1   ok
+  images in both dev and the pool: 0 -> 0   ok
+
+== giveaways ==
+Section 5.4: a content word of the question appears in exactly one option (library words minus stop words, exact match)
+  questions with such a word: 40 -> 40   ok   (of 1145)
+  share of val questions: 3.5% -> 3.5   ok
+  of these, the option is correct: 7 -> 7   ok
+  expected by chance (one in four): 10 -> 10   ok
+
+== parity ==
+Section 4.1: GPU check run (G05_gate64) vs CPU run (pilot_a2v2_bridge_init), untrained 0.5B bridge
+  questions: 64 -> 64   ok
+  real-image predictions (4 option orders): 256 -> 256   ok
+  median |delta log p|, real image (nats): 0.003 -> 0.003   ok
+  max |delta log p|, real image (nats): 0.07 -> 0.07   ok
+  prediction flips, real image: 1 -> 1   ok
+  prediction flips, text-only (blank image): 0 -> 0   ok   (256 predictions, max |delta| 3.1e-05 nats)
+  prediction flips, text-only (none image): 0 -> 0   ok   (256 predictions, max |delta| 4.3e-05 nats)
+
+== cue ==
+Section 4.6 / Section 3.5 notes: "Answer:" cue not written by the model (real images)
+  most misses in a trained main or balanced-loss R->A run (18 runs): 3 -> 3   ok   (report: 'all but at most three')
+  lambda = 0 and 0.1 (two seeds each): lowest share of misses: 81% -> 81   ok   ({'G05_HP_rationale_then_answer_rw0.1_s0': 928, 'G05_HP_rationale_then_answer_rw0.1_s1': 1017, 'G05_HP_rationale_then_answer_rw0_s0': 1139, 'G05_HP_rationale_then_answer_rw0_s1': 1143})
+  lambda = 0 and 0.1: highest share of misses: 100% -> 100   ok
+  note: other hyperparameter-study R->A runs with more than three misses: {'G05_HP_rationale_then_answer_lr3e-5_s0': 6, 'G05_HP_rationale_then_answer_lr3e-5_s1': 7, 'G05_HP_rationale_then_answer_rw0.3_s0': 69, 'G05_HP_rationale_then_answer_rw0.3_s1': 54, 'G05_HP_rationale_then_answer_rw1.0_s0': 4}
+
+== explanations ==
+Section 4.6 and Table 4.8: R->A explanations, seeds pooled
+  (5725 and 3435 explanations per image condition)
+  0.5B "The X is Y." share: 90% -> 90   ok   (regex THE_X_IS_Y of explanation_checks.py)
+  7B "The X is Y." share: 85% -> 85   ok   (regex THE_X_IS_Y of explanation_checks.py)
+  0.5B mean words: 6.5 -> 6.5   ok
+  0.5B real: ROUGE-L, three references: 53.0 -> 53.0   ok
+  0.5B real: ROUGE-L, two references (leave one out): 47.3 -> 47.3   ok
+  0.5B real: accuracy if the explanation names the answer: 96.5 -> 96.5   ok
+  0.5B real: accuracy otherwise: 39.8 -> 39.8   ok
+  0.5B real: share naming the answer (substring): 37.9% -> 37.9   ok
+  0.5B swapped: ROUGE-L, three references: 50.5 -> 50.5   ok
+  0.5B swapped: ROUGE-L, two references (leave one out): 45.2 -> 45.2   ok
+  0.5B swapped: accuracy if the explanation names the answer: 95.1 -> 95.1   ok
+  0.5B swapped: accuracy otherwise: 18.8 -> 18.8   ok
+  0.5B swapped: share naming the answer (substring): 20.3% -> 20.3   ok
+  7B real: ROUGE-L, three references: 53.8 -> 53.8   ok
+  7B real: ROUGE-L, two references (leave one out): 48.1 -> 48.1   ok
+  7B real: accuracy if the explanation names the answer: 99.0 -> 99.0   ok
+  7B real: accuracy otherwise: 58.1 -> 58.1   ok
+  7B real: share naming the answer (substring): 47.8% -> 47.8   ok
+  7B swapped: ROUGE-L, three references: 50.0 -> 50.0   ok
+  7B swapped: ROUGE-L, two references (leave one out): 44.9 -> 44.9   ok
+  7B swapped: accuracy if the explanation names the answer: 96.5 -> 96.5   ok
+  7B swapped: accuracy otherwise: 24.3 -> 24.3   ok
+  7B swapped: share naming the answer (substring): 25.9% -> 25.9   ok
+  0.5B real: share naming the answer as whole words: 35.9% -> 35.9   ok
+  0.5B real: names at least one option: 58% -> 58   ok
+  0.5B real: names only wrong options: 22% -> 22   ok
+  0.5B swapped: names at least one option: 56% -> 56   ok
+  0.5B swapped: names only wrong options: 36% -> 36   ok
+  7B real: names at least one option: 56% -> 56   ok
+  7B real: names only wrong options: 12% -> 12   ok
+  7B swapped: names at least one option: 55% -> 55   ok
+  7B swapped: names only wrong options: 30% -> 30   ok
+  human rationales: mean words: 11.1 -> 11.1   ok
+  human rationales: name at least one option: 38% -> 38   ok
+  human rationales: name only wrong options: 3% -> 3   ok
+  one human rationale against the other two: ROUGE-L: 36.2 -> 36.2   ok   (36.25, averaged over the three rationales; first rationale only: 36.28)
+
+== examples ==
+Figure 4.7: AO vs R->A, 0.5B, all training data, seed 0, real images
+  AO right, R->A wrong: 181 -> 181   ok
+  of these, the explanation names the option R->A picks (and no other): 93 -> 93   ok   (95 if other options may be named too)
+  R->A right, AO wrong: 109 -> 109   ok
+
+== laptop ==
+Table 4.8 A->R rows and Section 4.6 A->R prose: mean of seeds 0-2 (mac_final/atr_full_s*, atrbal_full_s*)
+  default real: ROUGE-L, three references: 53.4 -> 53.4   ok
+  default real: accuracy if it names the answer: 95.7 -> 95.7   ok
+  default real: accuracy otherwise: 39.0 -> 39.0   ok
+  default real: share naming the answer: 40.2% -> 40.2   ok
+  default real: ROUGE-L, two references: 47.5 -> 47.5   ok
+  default swapped: ROUGE-L, three references: 50.9 -> 50.9   ok
+  default swapped: accuracy if it names the answer: 93.2 -> 93.2   ok
+  default swapped: accuracy otherwise: 16.5 -> 16.5   ok
+  default swapped: share naming the answer: 22.2% -> 22.2   ok
+  default swapped: ROUGE-L, two references: 45.3 -> 45.3   ok
+  balanced real: ROUGE-L, three references: 50.1 -> 50.1   ok
+  balanced real: accuracy if it names the answer: 91.3 -> 91.3   ok
+  balanced real: accuracy otherwise: 50.7 -> 50.7   ok
+  balanced real: share naming the answer: 39.0% -> 39.0   ok
+  balanced real: ROUGE-L, two references: 44.9 -> 44.9   ok
+  balanced swapped: ROUGE-L, three references: 47.4 -> 47.4   ok
+  balanced swapped: accuracy if it names the answer: 78.9 -> 78.9   ok
+  balanced swapped: accuracy otherwise: 23.9 -> 23.9   ok
+  balanced swapped: share naming the answer: 19.8% -> 19.8   ok
+  balanced swapped: ROUGE-L, two references: 42.7 -> 42.7   ok
+  atr real: the_x_is_y: 89% -> 89   ok
+  atr real: words: 6.1 -> 6.1   ok
+  atr real: names_any: 66.7% -> 66.7   ok
+  atr real: letter_acc: 61.7% -> 61.7   ok
+  atr swapped: letter_acc: 33.5% -> 33.5   ok
+  atrbal real: letter_acc: 66.6% -> 66.6   ok
+  atrbal real: names_any: 59.5% -> 59.5   ok
+  atrbal real: the_x_is_y: 79% -> 79   ok
+  atr real: named option is the chosen one (share of those naming one): 95% -> 95   ok   (94.75; from the means rounded to 0.1: 94.75)
+  atrbal real: named option is the chosen one (share of those naming one): 84% -> 84   ok   (84.49; from the means rounded to 0.1: 84.54)
+Table 4.9: AO with the R->A explanation as context (mac_final/steer_full_s*)
+  names_correct: share of questions: 35.8% -> 35.8   ok
+  names_correct: AO: 79.9 ± 1.0 -> 79.9 ± 1.0   ok   [seeds 81.00, 79.60, 79.00]
+  names_correct: AO + explanation: 96.7 ± 1.0 -> 96.7 ± 1.0   ok   [seeds 97.80, 96.40, 95.80]
+  names_correct: R->A: 97.0 ± 0.2 -> 97.0 ± 0.2   ok   [seeds 96.80, 97.10, 97.10]
+  names_wrong_only: share of questions: 21.6% -> 21.6   ok
+  names_wrong_only: AO: 40.4 ± 0.7 -> 40.4 ± 0.7   ok   [seeds 39.80, 40.30, 41.10]
+  names_wrong_only: AO + explanation: 10.0 ± 0.5 -> 10.0 ± 0.5   ok   [seeds 10.40, 9.50, 10.10]
+  names_wrong_only: R->A: 1.6 ± 0.4 -> 1.6 ± 0.4   ok   [seeds 1.60, 1.20, 2.00]
+  names_none: share of questions: 42.6% -> 42.6   ok
+  names_none: AO: 71.2 ± 1.0 -> 71.2 ± 1.0   ok   [seeds 71.10, 72.30, 70.30]
+  names_none: AO + explanation: 71.0 ± 0.4 -> 71.0 ± 0.4   ok   [seeds 71.30, 71.10, 70.50]
+  names_none: R->A: 61.6 ± 1.6 -> 61.6 ± 1.6   ok   [seeds 62.20, 62.70, 59.80]
+  all: share of questions: 100% -> 100   ok
+  all: AO: 67.7 ± 0.5 -> 67.7 ± 0.5   ok   [seeds 67.80, 68.10, 67.10]
+  all: AO + explanation: 67.0 ± 0.5 -> 67.0 ± 0.5   ok   [seeds 67.40, 67.10, 66.50]
+  all: R->A: 61.3 ± 0.7 -> 61.3 ± 0.7   ok   [seeds 61.30, 62.00, 60.60]
+  names_wrong_only: AO picks a named option: 85.5 ± 0.8 -> 85.5 ± 0.8   ok   [seeds 84.50, 86.00, 85.90]
+  R->A behind AO (pp): 6.4 -> 6.4   ok
+    of which from the explanation as read by AO (pp): 0.7 -> 0.7   ok
+    of which from the R->A bridge (pp): 5.7 -> 5.7   ok
+    of which on names-none questions (pp): 4.0 -> 4.0   ok
+  names-none: R->A below AO given the explanation (pp): 9.4 -> 9.4   ok
+Table 4.12: fewer image tokens (mac_AB, AO, 4k set, shuffled options)
+  729 tokens: accuracy: 61.5 ± 0.1 -> 61.5 ± 0.1   ok   [seeds 61.48, 61.57]
+  729 tokens: swapped: 33.6 ± 0.1 -> 33.6 ± 0.1   ok   [seeds 33.71, 33.54]
+  729 tokens: 4-order average: 64.4 ± 0.2 -> 64.4 ± 0.2   ok   [seeds 64.54, 64.28]
+  196 tokens: accuracy: 57.8 ± 0.8 -> 57.8 ± 0.8   ok   [seeds 58.43, 56.86, 58.08]
+  196 tokens: swapped: 33.4 ± 0.5 -> 33.4 ± 0.5   ok   [seeds 33.19, 33.10, 34.06]
+  196 tokens: 4-order average: 61.3 ± 0.1 -> 61.3 ± 0.1   ok   [seeds 61.31, 61.14, 61.40]
+  81 tokens: accuracy: 54.2 ± 0.2 -> 54.2 ± 0.2   ok   [seeds 54.24, 53.97, 54.41]
+  81 tokens: swapped: 32.9 ± 0.3 -> 32.9 ± 0.3   ok   [seeds 32.66, 32.84, 33.19]
+  81 tokens: 4-order average: 57.8 ± 0.8 -> 57.8 ± 0.8   ok   [seeds 58.78, 57.47, 57.21]
+  196 tokens seed 0, with speed-ups: 58.4 -> 58.4   ok
+  196 tokens seed 0, without speed-ups: 58.5 -> 58.5   ok
+Table 4.15: LoRA rows (mac_extra/C_*lora16_n4000_s0)
+  (accuracies from predictions)
+  answer_only: real: 64.7 -> 64.7   ok
+  answer_only: swapped: 35.7 -> 35.7   ok
+  answer_only: gap: 29.0 -> 29.0   ok
+  answer_then_rationale: real: 61.3 -> 61.3   ok
+  answer_then_rationale: swapped: 34.8 -> 34.8   ok
+  answer_then_rationale: gap: 26.5 -> 26.5   ok
+  answer_then_rationale: difference from LoRA AO: -3.4 -> -3.4   ok
+  rationale_then_answer: real: 61.3 -> 61.3   ok
+  rationale_then_answer: swapped: 34.6 -> 34.6   ok
+  rationale_then_answer: gap: 26.7 -> 26.7   ok
+  rationale_then_answer: difference from LoRA AO: -3.4 -> -3.4   ok
+Table 4.16: transfer (mac_transfer, mac_final; DA bridges mac_AB/B_direct_answer_n4000_s*)
+  direct answers, untrained bridge: real: 21.5 -> 21.5   ok
+  direct answers, untrained bridge: swapped: 4.7 -> 4.7   ok
+  direct answers, untrained bridge: gap: 16.7 -> 16.7   ok
+  direct answers, AO bridge: real: 24.3 ± 0.3 -> 24.3 ± 0.3   ok   [seeds 24.53, 24.00, 24.47]
+  direct answers, AO bridge: swapped: 6.2 ± 0.1 -> 6.2 ± 0.1   ok   [seeds 6.11, 6.20, 6.26]
+  direct answers, AO bridge: gap: 18.1 ± 0.3 -> 18.1 ± 0.3   ok   [seeds 18.42, 17.80, 18.20]
+  direct answers, DA bridge: real: 29.5 ± 1.0 -> 29.5 ± 1.0   ok   [seeds 29.74, 28.37, 30.33]
+  direct answers, DA bridge: swapped: 9.5 ± 0.1 -> 9.5 ± 0.1   ok   [seeds 9.33, 9.58, 9.49]
+  direct answers, DA bridge: gap: 20.0 ± 1.1 -> 20.0 ± 1.1   ok   [seeds 20.40, 18.79, 20.84]
+  MMStar, untrained bridge: real: 33.8 -> 33.8   ok
+  MMStar, untrained bridge: swapped: 26.5 -> 26.5   ok
+  MMStar, untrained bridge: gap: 7.3 -> 7.3   ok
+  MMStar, AO bridge: real: 35.6 ± 0.1 -> 35.6 ± 0.1   ok   [seeds 35.60, 35.47, 35.73]
+  MMStar, AO bridge: swapped: 26.7 ± 0.5 -> 26.7 ± 0.5   ok   [seeds 26.93, 27.00, 26.13]
+  MMStar, AO bridge: gap: 8.9 ± 0.6 -> 8.9 ± 0.6   ok   [seeds 8.67, 8.47, 9.60]
+  7B direct answers, untrained bridge: real: 38.5 -> 38.5   ok
+  7B direct answers, untrained bridge: swapped: 6.8 -> 6.8   ok
+  7B direct answers, untrained bridge: gap: 31.8 -> 31.8   ok
+  7B direct answers, AO bridge: real: 50.5 -> 50.5   ok
+  7B direct answers, AO bridge: swapped: 11.4 -> 11.4   ok
+  7B direct answers, AO bridge: gap: 39.1 -> 39.1   ok
+  7B MMStar, untrained bridge: real: 36.5 -> 36.5   ok
+  7B MMStar, untrained bridge: swapped: 27.5 -> 27.5   ok
+  7B MMStar, untrained bridge: gap: 9.0 -> 9.0   ok
+  7B MMStar, AO bridge: real: 37.5 -> 37.5   ok
+  7B MMStar, AO bridge: swapped: 26.3 -> 26.3   ok
+  7B MMStar, AO bridge: gap: 11.2 -> 11.2   ok
+  MMStar chance (uniform guess): 26.9 -> 26.9   ok
+  AO bridges on A-OKVQA multiple choice: 61.0 ± 0.2 -> 61.0 ± 0.2   ok   [seeds 61.31, 60.96, 60.87]
+
+== compute ==
+Section 4.9 and Table C.1: cloud jobs and GPU-hours (modal_job.json)
+  cloud jobs: 109 -> 109   ok
+  GPU-hours: 77.6 -> 77.6   ok
+  phase 1: jobs: 39 -> 39   ok
+  phase 1: GPU-hours: 26.4 -> 26.4   ok
+    GPU types in phase 1: {'L4': 34, 'L40S': 5}
+  phase 2: jobs: 14 -> 14   ok
+  phase 2: GPU-hours: 15.9 -> 15.9   ok
+    GPU types in phase 2: {'L40S': 14}
+  phase hp: jobs: 46 -> 46   ok
+  phase hp: GPU-hours: 25.4 -> 25.4   ok
+    GPU types in phase hp: {'L4': 46}
+  phase bal: jobs: 10 -> 10   ok
+  phase bal: GPU-hours: 9.9 -> 9.9   ok
+    GPU types in phase bal: {'L4': 6, 'L40S': 4}
+  NVIDIA L4: jobs: 86 -> 86   ok
+  NVIDIA L4: GPU-hours: 55.3 -> 55.3   ok
+  NVIDIA L40S: jobs: 23 -> 23   ok
+  NVIDIA L40S: GPU-hours: 22.3 -> 22.3   ok
+
+185 numbers reproduce, 0 differ

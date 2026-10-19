@@ -1,0 +1,21 @@
+cell                               n  real          swapped       real−swapped
+0.5B full AO               3   67.7 ± 1.3   35.1 ± 0.5   32.6 ± 1.7
+0.5B full A→R default      3   61.7 ± 0.8   33.5 ± 1.3   28.2 ± 2.0
+0.5B full A→R balanced λ=0.3 3   66.6 ± 1.7   34.7 ± 1.7   31.9 ± 1.8
+0.5B full R→A default      3   61.3 ± 1.7   34.3 ± 1.4   27.0 ± 2.9
+0.5B full R→A balanced λ=0.3 3   61.4 ± 0.8   34.6 ± 2.3   26.8 ± 1.7
+7B 4k AO                   2   81.8 ± 3.3   45.5 ± 3.9   36.3 ± 0.6
+7B 4k A→R default          2   80.2 ± 1.7   43.1 ± 2.2   37.2 ± 0.6
+7B 4k A→R balanced λ=0.3   2   81.8 ± 3.3   45.2 ± 6.7   36.7 ±10.0
+7B 4k R→A default          2   77.9 ± 1.7   43.0 ± 2.8   34.8 ± 1.1
+7B 4k R→A balanced λ=0.3   2   79.5 ± 7.2   42.6 ±11.7   36.9 ± 4.4
+
+Contrasts (bootstrap over items and seeds, matched seeds)
+0.5B full: A→R balanced − AO               real  -1.1 pp [ -2.7,  +0.5]   swapped  -0.4 pp [ -2.0,  +1.2]
+0.5B full: A→R balanced − A→R default      real  +4.9 pp [ +2.9,  +6.9]   swapped  +1.2 pp [ -1.1,  +3.4]
+0.5B full: R→A balanced − AO               real  -6.3 pp [ -8.8,  -3.8]   swapped  -0.5 pp [ -3.3,  +2.4]
+0.5B full: R→A balanced − R→A default      real  +0.1 pp [ -2.3,  +2.4]   swapped  +0.3 pp [ -2.4,  +3.0]
+7B 4k: A→R balanced − AO                   real  +0.0 pp [ -1.1,  +1.2]   swapped  -0.4 pp [ -2.2,  +1.3]
+7B 4k: A→R balanced − A→R default          real  +1.6 pp [ +0.1,  +3.1]   swapped  +2.1 pp [ +0.1,  +4.1]
+7B 4k: R→A balanced − AO                   real  -2.3 pp [ -4.4,  -0.2]   swapped  -3.0 pp [ -6.0,  -0.1]
+7B 4k: R→A balanced − R→A default          real  +1.7 pp [ -0.2,  +3.5]   swapped  -0.4 pp [ -2.9,  +2.1]

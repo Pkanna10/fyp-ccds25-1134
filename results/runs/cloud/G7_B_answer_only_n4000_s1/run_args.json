@@ -1,0 +1,110 @@
+{
+  "bridge": "/repo/configs/ov_qwen2_7b_frozen.json",
+  "target": "answer_only",
+  "aokvqa_dir": "/data/aokvqa",
+  "coco_dir": "/data/coco",
+  "epochs": 1.0,
+  "batch_size": 1,
+  "grad_accum": 16,
+  "lr": 0.0001,
+  "rationale_weight": null,
+  "margin_lambda": 0.0,
+  "margin_nats": 1.0,
+  "eval_every": 1000000,
+  "dev_size": 100,
+  "select": "last",
+  "train_limit": 4000,
+  "train_jsonl": null,
+  "blocklist": null,
+  "val_limit": null,
+  "conditions": "real,swapped",
+  "rotations": 4,
+  "mean_calib": 64,
+  "seed": 1,
+  "grad_ckpt": false,
+  "checkpoint_every": 10,
+  "resume": "if_present",
+  "lora_r": 0,
+  "lora_alpha": 32,
+  "load_in_4bit": false,
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "eval_dtype": "float32",
+  "head_dtype": "fp32",
+  "threads": 4,
+  "prior_run": null,
+  "eval_only": false,
+  "out": "/runs/G7_B_answer_only_n4000_s1",
+  "spec": {
+    "vision_id": "google/siglip-so400m-patch14-384",
+    "llm_id": "Qwen/Qwen2-7B-Instruct",
+    "projector_kind": "mlp2x_gelu",
+    "projector_path": "hf://lmms-lab/llava-onevision-projectors/7b/mm_projector.bin",
+    "select_layer": -2,
+    "drop_cls": false,
+    "pool": 1,
+    "prompt_style": "chat_template",
+    "pad_to_square": false,
+    "load_in_4bit": false
+  },
+  "train_composition": null,
+  "trainable_parameters": 16980992,
+  "train_dtype": "bfloat16",
+  "model_input": {
+    "head_dtype_requested": "fp32",
+    "head_dtype": "fp32",
+    "prefix_cache": true,
+    "dtype": "float32",
+    "train_dtype": "bfloat16",
+    "eval_dtype": "float32"
+  },
+  "manifest": {
+    "git_commit": null,
+    "git_dirty": null,
+    "python": "3.12.10",
+    "packages": {
+      "torch": "2.14.1",
+      "transformers": "5.19.0",
+      "peft": "0.21.2",
+      "numpy": "2.5.3"
+    },
+    "data_sha256": {
+      "/data/aokvqa/aokvqa_v1p0_train.json": "94820c4452d29102365647598c54608d4f48f56bee01b514c996a09cc0972029",
+      "/data/aokvqa/aokvqa_v1p0_val.json": "fd90b05dec8d78d341b69d9516c54a9b30dd4c12c3545599dab5d6f725aba6b4"
+    },
+    "hf_models": {
+      "llm": {
+        "id": "Qwen/Qwen2-7B-Instruct",
+        "revision": null
+      },
+      "projector": {
+        "id": "hf://lmms-lab/llava-onevision-projectors/7b/mm_projector.bin",
+        "revision": null,
+        "sha256": "08fd70becae179cfc7942bd0759c5ef179b71b9459e740f65c6f758d789a6f1e"
+      }
+    },
+    "compute": {
+      "torch_num_threads": 4,
+      "torch_interop_threads": 1,
+      "torch_cpu_capability": "AVX512",
+      "omp_num_threads_env": "4",
+      "cmr_threads_env": null,
+      "cpu_model": "unknown",
+      "cpu_flags": "3dnowprefetch abm acpi adx aes apic arch_capabilities arch_lbr avx avx2 avx512_bitalg avx512_fp16 avx512_vbmi2 avx512_vnni avx512_vpopcntdq avx512bw avx512cd avx512dq avx512f avx512vbmi avx512vl bmi1 bmi2 cldemote clflush clwb cmov cqm cx16 cx8 dca de ds_cpl dtes64 dts erms est f16c flush_l1d fma fpu fsgsbase fsrm fxsr gfni ht ibt invpcid la57 lahf_lm lm mca mce md_clear mmx monitor movbe movdir64b movdiri msr mtrr nx ospke pae pat pbe pcid pclmulqdq pconfig pdcm pdpe1gb pge pku pni popcnt pse pse36 rdpid rdrand rdseed rdt_a rdtscp sdbg sep serialize sha_ni smap smep smx ss sse sse2 sse4_1 sse4_2 ssse3 syscall tm tm2 tme tsc tsc_adjust tsc_deadline_timer tsxldtrk umip vaes vme vmx vpclmulqdq waitpkg x2apic xgetbv1 xsave xsavec xsaveopt xsaves xtpr",
+      "cpu_count": 20
+    },
+    "started_utc": "2026-10-15T16:41:20Z",
+    "segments": [
+      {
+        "git_commit": null,
+        "git_dirty": null,
+        "started_utc": "2026-10-15T16:41:20Z",
+        "torch_num_threads": 4,
+        "start_step": 0,
+        "first_record_index": 0
+      }
+    ]
+  },
+  "resumed_from_step": null,
+  "resume_saved_commit": null
+}

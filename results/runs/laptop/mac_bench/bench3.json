@@ -1,0 +1,81 @@
+{
+  "C1 eager step (block attention)": {
+    "ms": {
+      "812": 468,
+      "821": 528,
+      "830": 482
+    }
+  },
+  "C1 compiled: first call per new length (s)": {
+    "s": {
+      "812": 12.9,
+      "821": 5.1,
+      "830": 4.2,
+      "838": 9.1,
+      "846": 8.5,
+      "857": 4.5
+    }
+  },
+  "C1 compiled step": {
+    "ms": {
+      "812": 359,
+      "821": 444,
+      "830": 401
+    },
+    "speedup": 1.23
+  },
+  "C1 compiled vs eager input-gradient, fp32": {
+    "rel_l2": "0.0e+00"
+  },
+  "C2 GPU step solo": {
+    "ms": 402
+  },
+  "C2 CPU float32 4 threads": {
+    "cpu_ms": 1423,
+    "gpu_busy_ms": 410,
+    "cpu_ms_while_gpu": 1305,
+    "best_cpu_share": "4/16",
+    "speedup": 1.23,
+    "rss_gb": 5.37
+  },
+  "C2 CPU float32 6 threads": {
+    "cpu_ms": 1272,
+    "gpu_busy_ms": 414,
+    "cpu_ms_while_gpu": 885,
+    "best_cpu_share": "5/16",
+    "speedup": 1.41,
+    "rss_gb": 5.37
+  },
+  "C2 CPU float32 8 threads": {
+    "cpu_ms": 1225,
+    "gpu_busy_ms": 459,
+    "cpu_ms_while_gpu": 938,
+    "best_cpu_share": "5/16",
+    "speedup": 1.27,
+    "rss_gb": 5.37
+  },
+  "C2 CPU bfloat16 4 threads": {
+    "cpu_ms": 176598,
+    "gpu_busy_ms": 393,
+    "cpu_ms_while_gpu": 2335,
+    "best_cpu_share": "2/16",
+    "speedup": 1.17,
+    "rss_gb": 5.37
+  },
+  "C2 CPU bfloat16 6 threads": {
+    "cpu_ms": 176245,
+    "gpu_busy_ms": 401,
+    "cpu_ms_while_gpu": 2370,
+    "best_cpu_share": "2/16",
+    "speedup": 1.15,
+    "rss_gb": 5.37
+  },
+  "C2 CPU bfloat16 8 threads": {
+    "cpu_ms": 176391,
+    "gpu_busy_ms": 395,
+    "cpu_ms_while_gpu": 2046,
+    "best_cpu_share": "2/16",
+    "speedup": 1.16,
+    "rss_gb": 5.37
+  }
+}

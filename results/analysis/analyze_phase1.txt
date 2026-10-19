@@ -1,0 +1,52 @@
+## θ0 (untrained bridge), rotation 0
+G05  AO   real  52.1  swapped  30.4
+G05  A→R  real  45.0  swapped  28.2
+G05  R→A  real  50.0  swapped  31.0
+G7   AO   real  73.2  swapped  35.2
+G7   A→R  real  73.5  swapped  37.0
+G7   R→A  real  72.0  swapped  36.9
+
+## Trained cells, rotation 0, mean ± 95% t-CI over seeds (n=5 unless shown)
+size data   arm   n  real          swapped       real−swapped  Acc|P(real)  rot-avg real  steps
+G05  n4000  AO   5   61.4 ± 0.6   33.6 ± 0.7   27.9 ± 1.1   54.8 ± 1.0   62.1 ± 0.5  250
+G05  n4000  A→R  5   52.1 ± 1.4   32.2 ± 0.7   19.9 ± 1.1   43.4 ± 1.6   53.8 ± 0.8  250
+G05  n4000  R→A  5   55.0 ± 0.6   32.8 ± 1.3   22.3 ± 1.8   49.2 ± 0.5   55.0 ± 0.6  250
+G05  full   AO   5   67.4 ± 0.6   35.2 ± 0.8   32.2 ± 1.2   61.8 ± 0.7   66.9 ± 0.4  1002
+G05  full   A→R  5   61.6 ± 0.3   33.9 ± 0.8   27.7 ± 1.0   52.7 ± 0.2   61.4 ± 0.5  1002
+G05  full   R→A  5   61.3 ± 0.7   34.3 ± 0.6   27.0 ± 1.0   55.6 ± 0.9   61.3 ± 0.7  1002
+G7   n4000  AO   3   81.7 ± nan   45.7 ± nan   36.0 ± nan     -           81.0 ± nan  250
+G7   n4000  A→R  3   80.1 ± nan   43.5 ± nan   36.6 ± nan     -           79.8 ± nan  250
+G7   n4000  R→A  3   77.6 ± nan   43.1 ± nan   34.6 ± nan     -           77.6 ± nan  250
+G7   full   AO   3   83.1 ± nan   46.1 ± nan   37.1 ± nan     -           82.5 ± nan  1002
+G7   full   A→R  3   81.3 ± nan   44.9 ± nan   36.5 ± nan     -           81.1 ± nan  1002
+
+## Arm contrasts on real-image accuracy (hierarchical bootstrap over items and seeds)
+G05  n4000  A→R − AO :  -9.3 pp [-11.9,  -6.9]   (swapped:  -1.4 pp [ -3.7,  +0.9])
+G05  n4000  R→A − AO :  -6.4 pp [ -9.1,  -3.8]   (swapped:  -0.8 pp [ -3.7,  +2.1])
+G05  n4000  R→A − A→R :  +2.9 pp [ +0.1,  +5.8]
+G05  full   A→R − AO :  -5.8 pp [ -7.9,  -3.7]   (swapped:  -1.4 pp [ -3.6,  +0.9])
+G05  full   R→A − AO :  -6.1 pp [ -8.7,  -3.5]   (swapped:  -1.0 pp [ -4.0,  +2.1])
+G05  full   R→A − A→R :  -0.3 pp [ -3.0,  +2.3]
+G7   n4000  A→R − AO :  -1.6 pp [ -3.2,  -0.0]   (swapped:  -2.2 pp [ -4.3,  -0.1])
+G7   n4000  R→A − AO :  -4.1 pp [ -6.1,  -2.1]   (swapped:  -2.6 pp [ -5.4,  +0.0])
+G7   n4000  R→A − A→R :  -2.4 pp [ -4.4,  -0.7]
+G7   full   A→R − AO :  -1.8 pp [ -3.6,  +0.0]   (swapped:  -1.2 pp [ -3.2,  +0.8])
+
+## Data dose: full − n4000 (0.5B)
+AO  : real  +5.9 pp [ +4.2,  +7.7]   swapped  +1.7 pp [ +0.1,  +3.4]
+A→R : real  +9.5 pp [ +7.1, +11.8]   swapped  +1.7 pp [ -0.5,  +4.0]
+R→A : real  +6.3 pp [ +4.0,  +8.5]   swapped  +1.5 pp [ -0.8,  +3.9]
+
+## Scale: 7B − 0.5B at n4000, 0.5B seed 0 only (superseded; see analyze_phase2_hp.py)
+AO  : +20.1 pp [+17.2, +22.9]
+A→R : +27.8 pp [+24.7, +31.1]
+θ0 7B−0.5B AO: +21.0 pp
+
+## Interaction: (A→R − AO) at full minus at n4000, 0.5B
+A→R: +3.5 pp [+0.9, +6.3]
+R→A: +0.3 pp [-2.4, +3.1]
+
+## Cross-check: earlier CPU runs (results/runs/laptop/B_*_n4000), rotation 0
+AO   CPU n=0 real 
+A→R  CPU n=0 real 
+R→A  CPU n=0 real 

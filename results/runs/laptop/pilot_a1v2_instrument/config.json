@@ -1,0 +1,81 @@
+{
+  "conditions": [
+    "none"
+  ],
+  "contexts": [
+    "none",
+    "caption",
+    "rationale_masked",
+    "rationale"
+  ],
+  "rotations": 4,
+  "seed": 0,
+  "meta": {
+    "model": "bridge:configs/ov_qwen2_05b_frozen.json",
+    "aokvqa_dir": "data/raw/aokvqa",
+    "coco_dir": null,
+    "captions": "data/raw/coco/annotations/captions_val2017.json",
+    "split": "val",
+    "limit": null,
+    "conditions": "none",
+    "contexts": "none,caption,rationale_masked,rationale",
+    "rotations": 4,
+    "seed": 0,
+    "device": "cpu",
+    "dtype": "float32",
+    "processor_kwargs": "{}",
+    "model_kwargs": "{}",
+    "head_dtype": "fp32",
+    "threads": 4,
+    "max_image_side": null,
+    "projector": null,
+    "mean_calib": 64,
+    "mean_calib_split": "train",
+    "prior_run": null,
+    "out": "runs/pilot_a1v2_instrument"
+  },
+  "model": "bridge:Qwen/Qwen2-0.5B-Instruct",
+  "model_input": {
+    "head_dtype_requested": "fp32",
+    "head_dtype": "fp32",
+    "prefix_cache": true,
+    "dtype": "float32"
+  },
+  "manifest": {
+    "git_commit": "4789bba91bf70562e0b7363eaf3754fee742d99a",
+    "git_dirty": false,
+    "python": "3.13.16",
+    "packages": {
+      "torch": "2.14.1",
+      "transformers": "5.19.0",
+      "peft": "0.21.2",
+      "numpy": "2.5.3"
+    },
+    "data_sha256": {
+      "data/raw/aokvqa/aokvqa_v1p0_val.json": "fd90b05dec8d78d341b69d9516c54a9b30dd4c12c3545599dab5d6f725aba6b4",
+      "data/raw/coco/annotations/captions_val2017.json": "8ffa980ecc76a7193d91e5c4feb5714ea1ef4851411e7d5cc35d7014d48bc265"
+    },
+    "hf_models": {
+      "llm": {
+        "id": "Qwen/Qwen2-0.5B-Instruct",
+        "revision": null
+      },
+      "projector": {
+        "id": "hf://lmms-lab/llava-onevision-projectors/0.5b/mm_projector.bin",
+        "revision": null,
+        "sha256": "932563745103233e673692c43709e01a82fd2d4ef9ab81732263f01f05e093ba"
+      }
+    },
+    "compute": {
+      "torch_num_threads": 4,
+      "torch_interop_threads": 1,
+      "torch_cpu_capability": "AVX512",
+      "omp_num_threads_env": null,
+      "cmr_threads_env": null,
+      "cpu_model": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+      "cpu_flags": "3dnowprefetch abm adx aes amx_bf16 amx_int8 amx_tile apic arat arch_capabilities avx avx2 avx512_bf16 avx512_bitalg avx512_fp16 avx512_vbmi2 avx512_vnni avx512_vpopcntdq avx512bw avx512cd avx512dq avx512f avx512ifma avx512vbmi avx512vl avx_vnni bmi1 bmi2 cldemote clflush clflushopt clwb cmov constant_tsc cpuid cpuid_fault cx16 cx8 de erms f16c fma fpu fsgsbase fsrm fxsr gfni hle ht hypervisor ibpb ibrs ibrs_enhanced invpcid lahf_lm lm mca mce md_clear mmx movbe movdir64b movdiri msr mtrr nonstop_tsc nopl nx pae pat pcid pclmulqdq pdpe1gb pge pni popcnt pse pse36 rdpid rdrand rdseed rdtscp rep_good rtm sep serialize sha_ni smap smep ss ssbd sse sse2 sse4_1 sse4_2 ssse3 stibp syscall tsc tsc_adjust tsc_deadline_timer tsc_known_freq tsxldtrk umip vaes vme vpclmulqdq wbnoinvd x2apic xgetbv1 xsave xsavec xsaveopt xsaves xtopology",
+      "cpu_count": 4
+    },
+    "started_utc": "2026-10-10T06:07:15Z"
+  }
+}

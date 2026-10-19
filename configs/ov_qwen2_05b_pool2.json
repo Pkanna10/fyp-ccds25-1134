@@ -1,0 +1,12 @@
+{
+  "_comment": "As ov_qwen2_05b_frozen.json with the patch grid pooled 2x2: 196 image tokens (Table 4.12).",
+  "vision_id": "google/siglip-so400m-patch14-384",
+  "llm_id": "Qwen/Qwen2-0.5B-Instruct",
+  "projector_kind": "mlp2x_gelu",
+  "projector_path": "hf://lmms-lab/llava-onevision-projectors/0.5b/mm_projector.bin",
+  "select_layer": -2,
+  "drop_cls": false,
+  "pool": 2,
+  "prompt_style": "chat_template",
+  "pad_to_square": false
+}

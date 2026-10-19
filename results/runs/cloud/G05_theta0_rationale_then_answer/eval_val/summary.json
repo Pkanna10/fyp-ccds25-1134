@@ -1,0 +1,70 @@
+{
+  "n_questions": 1145,
+  "reference": [
+    "real",
+    "none"
+  ],
+  "rows": [
+    {
+      "condition": "real",
+      "context": "none",
+      "n": 1145,
+      "acc": 0.5004366812227075,
+      "acc_ci": [
+        0.4715225720688901,
+        0.5293478700554511
+      ],
+      "circ_acc": 0.5004366812227075,
+      "perm_acc": 0.5004366812227075,
+      "mean_logp_correct": -1.6550186569576155,
+      "letter_mass": 0.7965259674501934,
+      "n_prior_wrong": 728,
+      "acc_prior_wrong": 0.43131868131868134,
+      "perm_acc_prior_wrong": 0.43131868131868134,
+      "acc_prior_wrong_real_minus_swapped": 0.19093406593406592,
+      "acc_prior_wrong_real_minus_swapped_ci": [
+        0.14835164835164835,
+        0.23351648351648352
+      ]
+    },
+    {
+      "condition": "swapped",
+      "context": "none",
+      "n": 1145,
+      "acc": 0.31004366812227074,
+      "acc_ci": [
+        0.28392643962723296,
+        0.33743123628429905
+      ],
+      "circ_acc": 0.31004366812227074,
+      "perm_acc": 0.31004366812227074,
+      "mean_logp_correct": -2.4855640238884007,
+      "letter_mass": 0.8065713560656854,
+      "delta_acc_vs_ref": 0.1903930131004367,
+      "delta_acc_ci": [
+        0.1554585152838428,
+        0.2262008733624454
+      ],
+      "mcnemar_p": 5.086031082998998e-24,
+      "vig_nats": 0.8305453669307853,
+      "vig_ci": [
+        0.6986623850109372,
+        0.9619992729248475
+      ],
+      "flip_rate": 0.5930131004366812,
+      "n_prior_wrong": 728,
+      "acc_prior_wrong": 0.2403846153846154,
+      "perm_acc_prior_wrong": 0.2403846153846154
+    }
+  ],
+  "prior": {
+    "source": "external",
+    "rotations": 4,
+    "definition": "gold is not the unique argmax of rotation-averaged prior probabilities",
+    "n_scope": 1145,
+    "n_prior_wrong": 728,
+    "n_prior_right": 417,
+    "blind_agreement": 0.4165938864628821,
+    "blind_agreement_bound": 0.8637554585152838
+  }
+}

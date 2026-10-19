@@ -1,0 +1,88 @@
+{
+  "conditions": [
+    "real",
+    "none",
+    "blank"
+  ],
+  "contexts": [
+    "none"
+  ],
+  "rotations": 4,
+  "seed": 0,
+  "meta": {
+    "model": "bridge:/repo/configs/ov_qwen2_05b_frozen.json",
+    "aokvqa_dir": "/data/aokvqa",
+    "coco_dir": "/data/coco",
+    "captions": null,
+    "split": "val",
+    "limit": 64,
+    "conditions": "real,none,blank",
+    "contexts": "none",
+    "rotations": 4,
+    "seed": 0,
+    "device": "cuda",
+    "dtype": "float32",
+    "processor_kwargs": "{}",
+    "model_kwargs": "{}",
+    "head_dtype": "fp32",
+    "threads": 4,
+    "max_image_side": null,
+    "projector": null,
+    "mean_calib": 64,
+    "mean_calib_split": "train",
+    "prior_run": null,
+    "out": "/runs/G05_gate64"
+  },
+  "model": "bridge:Qwen/Qwen2-0.5B-Instruct",
+  "model_input": {
+    "head_dtype_requested": "fp32",
+    "head_dtype": "fp32",
+    "prefix_cache": true,
+    "dtype": "float32"
+  },
+  "manifest": {
+    "git_commit": null,
+    "git_dirty": null,
+    "python": "3.12.10",
+    "packages": {
+      "torch": "2.14.1",
+      "transformers": "5.19.0",
+      "peft": "0.21.2",
+      "numpy": "2.5.3"
+    },
+    "data_sha256": {
+      "/data/aokvqa/aokvqa_v1p0_val.json": "fd90b05dec8d78d341b69d9516c54a9b30dd4c12c3545599dab5d6f725aba6b4"
+    },
+    "hf_models": {
+      "llm": {
+        "id": "Qwen/Qwen2-0.5B-Instruct",
+        "revision": null
+      },
+      "projector": {
+        "id": "hf://lmms-lab/llava-onevision-projectors/0.5b/mm_projector.bin",
+        "revision": null,
+        "sha256": "932563745103233e673692c43709e01a82fd2d4ef9ab81732263f01f05e093ba"
+      }
+    },
+    "compute": {
+      "torch_num_threads": 4,
+      "torch_interop_threads": 1,
+      "torch_cpu_capability": "AVX512",
+      "omp_num_threads_env": "4",
+      "cmr_threads_env": null,
+      "cpu_model": "unknown",
+      "cpu_flags": "3dnowprefetch abm adx aes apic arch_capabilities avx avx2 avx512_vnni avx512bw avx512cd avx512dq avx512f avx512vl bmi1 bmi2 clflush clwb cmov cx16 cx8 de erms f16c fma fpu fsgsbase fxsr hle ht hypervisor invpcid lahf_lm lm mca mce md_clear mmx movbe mpx msr mtrr nx pae pat pcid pclmulqdq pdpe1gb pge pni popcnt pse pse36 rdrand rdseed rdtscp rtm sep smap smep ss sse sse2 sse4_1 sse4_2 ssse3 syscall tsc tsc_adjust vme x2apic xgetbv1 xsave xsavec xsaveopt xsaves",
+      "cpu_count": 20
+    },
+    "started_utc": "2026-10-15T10:44:47Z",
+    "segments": [
+      {
+        "git_commit": null,
+        "git_dirty": null,
+        "started_utc": "2026-10-15T10:44:47Z",
+        "torch_num_threads": 4,
+        "first_record_index": 0
+      }
+    ]
+  }
+}

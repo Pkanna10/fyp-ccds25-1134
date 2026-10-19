@@ -1,0 +1,21 @@
+Text-only baselines of the frozen Qwen2-0.5B LLM (untrained bridge, no image)
+Inputs: question + options results/runs/laptop/text_only_baselines/question_options/predictions.jsonl
+        options only       results/runs/laptop/text_only_baselines/options_only/predictions.jsonl
+Questions: 1145 labelled val questions; 4 cyclic option orders each.
+Intervals: item bootstrap, 10,000 draws, random.Random(0), 95% percentile;
+the options-only accuracy and the difference use the same draws.
+
+Rotation-averaged accuracy (gold is the unique maximum of the option probabilities
+averaged over the four orders):
+  options only          26.46%  [23.93%, 29.08%]
+  question + options    36.42%
+  difference            +9.96 pp  [+6.55, +13.19]  (question + options minus options only)
+  questions with a tied maximum: options only 0, question + options 0
+
+Original option order only (rotation 0):
+                          accuracy  answers A  mean letter mass
+  question + options        29.17%     74.67%             0.850
+  options only              25.50%     89.34%             0.807
+  (letter mass = probability of the four option letters before renormalising)
+
+Gold position in the original order: A 281, B 281, C 295, D 288

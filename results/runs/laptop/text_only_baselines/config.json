@@ -1,0 +1,15 @@
+{
+  "what": "frozen Qwen2-0.5B + untrained bridge, no image, 4 option orders: question+options (question_options/) and options only (options_only/)",
+  "script": "experiments/analysis/text_only_baselines.py score",
+  "device": "mps",
+  "dtype": "float32",
+  "head_dtype": "fp32",
+  "threads": 4,
+  "bridge": "configs/ov_qwen2_05b_frozen.json",
+  "model_input": {
+    "head_dtype_requested": "fp32",
+    "head_dtype": "fp32",
+    "prefix_cache": true,
+    "dtype": "float32"
+  }
+}

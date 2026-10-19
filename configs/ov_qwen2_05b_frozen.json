@@ -1,0 +1,12 @@
+{
+  "_comment": "0.5B system: frozen SigLIP-so400m -> 2-layer MLP bridge (from the LLaVA-OneVision 0.5B projector) -> frozen Qwen2-0.5B-Instruct; 729 image tokens.",
+  "vision_id": "google/siglip-so400m-patch14-384",
+  "llm_id": "Qwen/Qwen2-0.5B-Instruct",
+  "projector_kind": "mlp2x_gelu",
+  "projector_path": "hf://lmms-lab/llava-onevision-projectors/0.5b/mm_projector.bin",
+  "select_layer": -2,
+  "drop_cls": false,
+  "pool": 1,
+  "prompt_style": "chat_template",
+  "pad_to_square": false
+}

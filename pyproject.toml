@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cmr"
+version = "0.1.0"
+description = "Cross-modal reasoning with LLMs and computer vision (NTU FYP CCDS25-1134)"
+authors = [{ name = "Manikandan Praveen Kannappan" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "pillow>=10"]
+
+[project.optional-dependencies]
+# models: to train or evaluate (torch and Hugging Face; datasets loads MMStar, sentencepiece and
+# protobuf SigLIP's text tokenizer); dev: tests, lint, type check; figures:
+# scripts/make_*figure*.py. transformers>=4.49: forward() takes logits_to_keep.
+models = ["torch>=2.2", "transformers>=4.49", "peft>=0.11", "huggingface_hub>=0.23", "datasets>=2.19", "sentencepiece>=0.2", "protobuf>=4"]
+dev = ["pytest>=8", "ruff>=0.5", "mypy>=1.10", "scipy>=1.11"]
+figures = ["matplotlib>=3.8"]
+
+[project.scripts]
+cmr-stage-a = "cmr.runners.stage_a:main"
+cmr-stage-b = "cmr.runners.stage_b:main"
+cmr-transfer = "cmr.runners.transfer:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["slow: trains tiny models (run with -m slow)"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+ignore_missing_imports = true
+files = ["src/cmr"]

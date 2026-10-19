@@ -1,0 +1,108 @@
+{
+  "n_questions": 1500,
+  "reference": [
+    "real",
+    "none"
+  ],
+  "rows": [
+    {
+      "condition": "real",
+      "context": "none",
+      "n": 1500,
+      "acc": 0.3546666666666667,
+      "acc_ci": [
+        0.33085545015653284,
+        0.37922037105115003
+      ],
+      "circ_acc": 0.3546666666666667,
+      "perm_acc": 0.3546666666666667,
+      "mean_logp_correct": -1.3068635593534481,
+      "letter_mass": 0.9857482057036695
+    },
+    {
+      "condition": "swapped",
+      "context": "none",
+      "n": 1500,
+      "acc": 0.27,
+      "acc_ci": [
+        0.24814150647724287,
+        0.29303353167253043
+      ],
+      "circ_acc": 0.27,
+      "perm_acc": 0.27,
+      "mean_logp_correct": -1.439223493853898,
+      "letter_mass": 0.9861242374051089,
+      "delta_acc_vs_ref": 0.08466666666666667,
+      "delta_acc_ci": [
+        0.058666666666666666,
+        0.11066666666666666
+      ],
+      "mcnemar_p": 2.480553504032671e-10,
+      "vig_nats": 0.13235993450044997,
+      "vig_ci": [
+        0.09610061776469907,
+        0.16954783678175403
+      ],
+      "flip_rate": 0.44666666666666666
+    }
+  ],
+  "transfer": {
+    "benchmark": "mmstar",
+    "chance_acc": 0.26916666666666667,
+    "skipped": {},
+    "per_category": {
+      "real": {
+        "coarse perception": {
+          "n": 250.0,
+          "acc": 0.52
+        },
+        "fine-grained perception": {
+          "n": 250.0,
+          "acc": 0.272
+        },
+        "instance reasoning": {
+          "n": 250.0,
+          "acc": 0.432
+        },
+        "logical reasoning": {
+          "n": 250.0,
+          "acc": 0.336
+        },
+        "math": {
+          "n": 250.0,
+          "acc": 0.264
+        },
+        "science & technology": {
+          "n": 250.0,
+          "acc": 0.304
+        }
+      },
+      "swapped": {
+        "coarse perception": {
+          "n": 250.0,
+          "acc": 0.248
+        },
+        "fine-grained perception": {
+          "n": 250.0,
+          "acc": 0.24
+        },
+        "instance reasoning": {
+          "n": 250.0,
+          "acc": 0.272
+        },
+        "logical reasoning": {
+          "n": 250.0,
+          "acc": 0.308
+        },
+        "math": {
+          "n": 250.0,
+          "acc": 0.268
+        },
+        "science & technology": {
+          "n": 250.0,
+          "acc": 0.284
+        }
+      }
+    }
+  }
+}

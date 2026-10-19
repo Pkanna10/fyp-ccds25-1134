@@ -1,0 +1,11 @@
+Gap = real − swapped accuracy (pp); gap(target) − gap(AO) [95% plain bootstrap]
+
+0.5B 4k: AO gap 27.9, gap / real 0.45
+0.5B 4k: A→R gap 19.9, gap / real 0.38; A→R − AO -7.9 [-11.0, -4.9]
+0.5B 4k: R→A gap 22.3, gap / real 0.40; R→A − AO -5.6 [-9.0, -2.1]
+0.5B 16k: AO gap 32.2, gap / real 0.48
+0.5B 16k: A→R gap 27.7, gap / real 0.45; A→R − AO -4.4 [-7.2, -1.7]
+0.5B 16k: R→A gap 27.0, gap / real 0.44; R→A − AO -5.1 [-8.6, -1.6]
+7B 4k: AO gap 36.0, gap / real 0.44
+7B 4k: A→R gap 36.6, gap / real 0.46; A→R − AO +0.6 [-1.9, +3.0]
+7B 4k: R→A gap 34.6, gap / real 0.45; R→A − AO -1.4 [-4.6, +1.6]

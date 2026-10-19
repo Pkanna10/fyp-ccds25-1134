@@ -1,0 +1,101 @@
+{
+  "bridge": "configs/ov_qwen2_05b_frozen.json",
+  "target": "answer_then_rationale",
+  "aokvqa_dir": "data/raw/aokvqa",
+  "coco_dir": "data/raw/coco",
+  "epochs": 1.0,
+  "batch_size": 1,
+  "grad_accum": 16,
+  "lr": 0.0001,
+  "rationale_weight": null,
+  "margin_lambda": 0.0,
+  "margin_nats": 1.0,
+  "eval_every": 1000000,
+  "dev_size": 500,
+  "select": "last",
+  "train_limit": 4000,
+  "train_jsonl": null,
+  "blocklist": null,
+  "val_limit": null,
+  "conditions": "real,swapped",
+  "rotations": 4,
+  "mean_calib": 64,
+  "seed": 1,
+  "grad_ckpt": false,
+  "checkpoint_every": 10,
+  "resume": "if_present",
+  "lora_r": 0,
+  "lora_alpha": 32,
+  "load_in_4bit": false,
+  "device": "cpu",
+  "dtype": "bfloat16",
+  "eval_dtype": "float32",
+  "head_dtype": "fp32",
+  "threads": 4,
+  "prior_run": "runs/pilot_a1v2_instrument",
+  "eval_only": false,
+  "out": "runs/B_answer_then_rationale_n4000_s1",
+  "spec": {
+    "vision_id": "google/siglip-so400m-patch14-384",
+    "llm_id": "Qwen/Qwen2-0.5B-Instruct",
+    "projector_kind": "mlp2x_gelu",
+    "projector_path": "hf://lmms-lab/llava-onevision-projectors/0.5b/mm_projector.bin",
+    "select_layer": -2,
+    "drop_cls": false,
+    "pool": 1,
+    "prompt_style": "chat_template",
+    "pad_to_square": false,
+    "load_in_4bit": false
+  },
+  "train_composition": null,
+  "trainable_parameters": 1836800,
+  "train_dtype": "bfloat16",
+  "model_input": {
+    "head_dtype_requested": "fp32",
+    "head_dtype": "fp32",
+    "prefix_cache": true,
+    "dtype": "float32",
+    "train_dtype": "bfloat16",
+    "eval_dtype": "float32"
+  },
+  "manifest": {
+    "git_commit": "4789bba91bf70562e0b7363eaf3754fee742d99a",
+    "git_dirty": false,
+    "python": "3.13.16",
+    "packages": {
+      "torch": "2.14.1",
+      "transformers": "5.19.0",
+      "peft": "0.21.2",
+      "numpy": "2.5.3"
+    },
+    "data_sha256": {
+      "data/raw/aokvqa/aokvqa_v1p0_train.json": "94820c4452d29102365647598c54608d4f48f56bee01b514c996a09cc0972029",
+      "data/raw/aokvqa/aokvqa_v1p0_val.json": "fd90b05dec8d78d341b69d9516c54a9b30dd4c12c3545599dab5d6f725aba6b4",
+      "runs/pilot_a1v2_instrument/predictions.jsonl": "e4a4810d79ea06a641db7ad99033d57b16fd119d65f9451ca23311a424741785"
+    },
+    "hf_models": {
+      "llm": {
+        "id": "Qwen/Qwen2-0.5B-Instruct",
+        "revision": null
+      },
+      "projector": {
+        "id": "hf://lmms-lab/llava-onevision-projectors/0.5b/mm_projector.bin",
+        "revision": null,
+        "sha256": "932563745103233e673692c43709e01a82fd2d4ef9ab81732263f01f05e093ba"
+      }
+    },
+    "compute": {
+      "torch_num_threads": 4,
+      "torch_interop_threads": 1,
+      "torch_cpu_capability": "AVX512",
+      "omp_num_threads_env": null,
+      "cmr_threads_env": null,
+      "cpu_model": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+      "cpu_flags": "3dnowprefetch abm adx aes amx_bf16 amx_int8 amx_tile apic arat arch_capabilities avx avx2 avx512_bf16 avx512_bitalg avx512_fp16 avx512_vbmi2 avx512_vnni avx512_vpopcntdq avx512bw avx512cd avx512dq avx512f avx512ifma avx512vbmi avx512vl avx_vnni bmi1 bmi2 cldemote clflush clflushopt clwb cmov constant_tsc cpuid cpuid_fault cx16 cx8 de erms f16c fma fpu fsgsbase fsrm fxsr gfni hle ht hypervisor ibpb ibrs ibrs_enhanced invpcid lahf_lm lm mca mce md_clear mmx movbe movdir64b movdiri msr mtrr nonstop_tsc nopl nx pae pat pcid pclmulqdq pdpe1gb pge pni popcnt pse pse36 rdpid rdrand rdseed rdtscp rep_good rtm sep serialize sha_ni smap smep ss ssbd sse sse2 sse4_1 sse4_2 ssse3 stibp syscall tsc tsc_adjust tsc_deadline_timer tsc_known_freq tsxldtrk umip vaes vme vpclmulqdq wbnoinvd x2apic xgetbv1 xsave xsavec xsaveopt xsaves xtopology",
+      "cpu_count": 4
+    },
+    "started_utc": "2026-10-11T15:39:39Z"
+  },
+  "resumed_from_step": 220,
+  "resume_saved_commit": "4789bba91bf70562e0b7363eaf3754fee742d99a"
+}
